@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--控制沉浸式状态栏时的高度-->
+    <dimen name="toolbar_padding_top">25dp</dimen>
+
+</resources>

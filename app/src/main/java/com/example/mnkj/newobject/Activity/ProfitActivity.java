@@ -1,25 +1,19 @@
 package com.example.mnkj.newobject.Activity;
 
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.mnkj.newobject.Adapter.ProfitAdapter;
-import com.example.mnkj.newobject.Adapter.RukuRecordAdapter;
 import com.example.mnkj.newobject.Base.BaseActivity;
 import com.example.mnkj.newobject.Bean.ProfitBean;
-import com.example.mnkj.newobject.Bean.RuKuRecordBean;
 import com.example.mnkj.newobject.R;
 
 import java.util.LinkedList;

@@ -89,6 +89,8 @@ public class GYSSelectAdapter extends RecyclerView.Adapter {
         TextView tv_gmp_zsh;
         @Bind(R.id.layout_gys_select_item)
         View layout_gys_select_item;
+        @Bind(R.id.layout_card)
+        View layout_card;
 
         public viewHolder(View itemView) {
             super(itemView);
@@ -105,28 +107,28 @@ public class GYSSelectAdapter extends RecyclerView.Adapter {
                 switch (condition) {
                     case "供应商名称":
                         if (bean.getGysmc().indexOf(content) != -1) {
-                            layout_gys_select_item.setVisibility(View.VISIBLE);
+                            layout_card.setVisibility(View.VISIBLE);
                         } else {
-                            layout_gys_select_item.setVisibility(View.GONE);
+                            layout_card.setVisibility(View.GONE);
                         }
                         break;
                     case "联系人":
                         if (bean.getLxrName().indexOf(content) != -1) {
-                            layout_gys_select_item.setVisibility(View.VISIBLE);
+                            layout_card.setVisibility(View.VISIBLE);
                         } else {
-                            layout_gys_select_item.setVisibility(View.GONE);
+                            layout_card.setVisibility(View.GONE);
                         }
                         break;
                     case "联系电话":
                         if (bean.getLxrdh().indexOf(content) != -1) {
-                            layout_gys_select_item.setVisibility(View.VISIBLE);
+                            layout_card.setVisibility(View.VISIBLE);
                         } else {
-                            layout_gys_select_item.setVisibility(View.GONE);
+                            layout_card.setVisibility(View.GONE);
                         }
                         break;
                 }
             } else {
-                layout_gys_select_item.setVisibility(View.VISIBLE);
+                layout_card.setVisibility(View.VISIBLE);
             }
         }
 

@@ -93,6 +93,7 @@ public class KHSelectActivity extends BaseActivity implements SwipeRefreshLayout
             @Override
             public void onFailure(Exception e) {
                 dialog.dismiss();
+                layout_swipe.setRefreshing(false);
                 ToastUtils.showShort(KHSelectActivity.this, e.getMessage());
             }
 

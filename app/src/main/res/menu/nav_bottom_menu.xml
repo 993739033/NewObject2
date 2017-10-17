@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:icon="@drawable/nav_contact_selector" android:title="首页"
+        />
+    <item android:icon="@drawable/nav_contact2_selector" android:title="分类"/>
+    <item android:icon="@drawable/nav_contact3_selector" android:title="搜索"/>
+    <item android:icon="@drawable/nav_contact4_selector" android:title="统计"/>
+    <item android:icon="@drawable/nav_self_selector" android:title="账号"/>
+
+</menu>

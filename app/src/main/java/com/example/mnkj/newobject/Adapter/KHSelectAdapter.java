@@ -85,6 +85,7 @@ public class KHSelectAdapter extends RecyclerView.Adapter {
         TextView tv_yzc;
         TextView tv_yzcd;
         View layout_kh_select_item;
+        View layout_card;
 
         public viewHolder(View itemView) {
             super(itemView);
@@ -94,6 +95,7 @@ public class KHSelectAdapter extends RecyclerView.Adapter {
             tv_yzc=itemView.findViewById(R.id.tv_yzc);
             tv_yzcd=itemView.findViewById(R.id.tv_yzcd);
             layout_kh_select_item=itemView.findViewById(R.id.layout_kh_select_item);
+            layout_card=itemView.findViewById(R.id.layout_card);
         }
 
         public void bindView(KHBean.DataList bean, String condition, String content) {
@@ -106,28 +108,28 @@ public class KHSelectAdapter extends RecyclerView.Adapter {
                 switch (condition) {
                     case "购买人姓名":
                         if (bean.getFBuyName().indexOf(content) != -1) {
-                        layout_kh_select_item.setVisibility(View.VISIBLE);
+                            layout_card.setVisibility(View.VISIBLE);
                         } else {
-                        layout_kh_select_item.setVisibility(View.GONE);
+                            layout_card.setVisibility(View.GONE);
                         }
                         break;
                     case "购买人手机":
                         if (bean.getFBuyTel().indexOf(content) != -1) {
-                            layout_kh_select_item.setVisibility(View.VISIBLE);
+                            layout_card.setVisibility(View.VISIBLE);
                         } else {
-                            layout_kh_select_item.setVisibility(View.GONE);
+                            layout_card.setVisibility(View.GONE);
                         }
                         break;
                     case "购买人地址":
                         if (bean.getFBuyAddress().indexOf(content) != -1) {
-                            layout_kh_select_item.setVisibility(View.VISIBLE);
+                            layout_card.setVisibility(View.VISIBLE);
                         } else {
-                            layout_kh_select_item.setVisibility(View.GONE);
+                            layout_card.setVisibility(View.GONE);
                         }
                         break;
                 }
             } else {
-                layout_kh_select_item.setVisibility(View.VISIBLE);
+                layout_card.setVisibility(View.VISIBLE);
             }
         }
 

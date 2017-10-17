@@ -1,7 +1,9 @@
 package com.example.mnkj.newobject.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
@@ -13,12 +15,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import com.example.mnkj.newobject.Adapter.RukuRecordAdapter;
+import com.example.mnkj.newobject.Adapter.RuKuRecordAdapter;
 import com.example.mnkj.newobject.Base.BaseActivity;
 import com.example.mnkj.newobject.Bean.RuKuRecordBean;
+import com.example.mnkj.newobject.Contance;
+import com.example.mnkj.newobject.Net.RequestCallBack;
 import com.example.mnkj.newobject.R;
 import com.example.mnkj.newobject.Utils.HiddenAnimUtils;
 import com.example.mnkj.newobject.Utils.KeyBoard;
+import com.example.mnkj.newobject.Utils.SPUtils;
+import com.example.mnkj.newobject.Utils.ToastUtils;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -26,9 +32,11 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.finalteam.okhttpfinal.HttpRequest;
+import cn.finalteam.okhttpfinal.RequestParams;
 
 //入库记录
-public class RuKuRecordActivity extends BaseActivity implements View.OnClickListener {
+public class RuKuRecordActivity extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
     @Bind(R.id.ruku_record_recy)
     RecyclerView ruku_record_recy;
     @Bind(R.id.btn_back)
@@ -43,14 +51,17 @@ public class RuKuRecordActivity extends BaseActivity implements View.OnClickList
     Button btn_search;
     @Bind(R.id.layout_more)
     View layout_more;
-    private List<RuKuRecordBean> list = new LinkedList<>();
+
+    @Bind(R.id.layout_swipe)
+    SwipeRefreshLayout layout_swipe;
+    ProgressDialog dialog;
+    private RuKuRecordBean bean = new RuKuRecordBean();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ru_ku_record);
         ButterKnife.bind(this);
-        initData();
         initView();
         initListener();
         bindSp();
@@ -59,61 +70,26 @@ public class RuKuRecordActivity extends BaseActivity implements View.OnClickList
 
     private void initListener() {
         btn_back.setOnClickListener(this);
-    }
-
-    private void initData() {
-        RuKuRecordBean bean = new RuKuRecordBean();
-        bean.setBuydate("16点17分");
-        bean.setNormalname("MOHAA稀释液");
-        bean.setGysname("金士顿国际有限公司");
-        bean.setJhcount("1000");
-        bean.setPrice("998");
-        list.add(bean);
-        RuKuRecordBean bean1 = new RuKuRecordBean();
-        bean1.setBuydate("16点27分");
-        bean1.setNormalname("MOA稀释液");
-        bean1.setGysname("英特威国际有限公司");
-        bean1.setJhcount("1200");
-        bean1.setPrice("998");
-        list.add(bean1);
-        RuKuRecordBean bean2 = new RuKuRecordBean();
-        bean2.setBuydate("16点27分");
-        bean2.setNormalname("OASG稀释液");
-        bean2.setGysname("舒肤佳国际有限公司");
-        bean2.setJhcount("1300");
-        bean2.setPrice("978");
-        list.add(bean2);
-        list.add(bean1);
-        RuKuRecordBean bean3 = new RuKuRecordBean();
-        bean3.setBuydate("16点27分");
-        bean3.setNormalname("OASG稀释液");
-        bean3.setGysname("舒肤佳国际有限公司");
-        bean3.setJhcount("1300");
-        bean3.setPrice("978");
-        list.add(bean3);
-        RuKuRecordBean bean4 = new RuKuRecordBean();
-        bean4.setBuydate("16点27分");
-        bean4.setNormalname("OASG稀释液");
-        bean4.setGysname("舒肤佳国际有限公司");
-        bean4.setJhcount("1300");
-        bean4.setPrice("978");
-        list.add(bean4);
-        RuKuRecordBean bean5 = new RuKuRecordBean();
-        bean5.setBuydate("16点27分");
-        bean5.setNormalname("OASG稀释液");
-        bean5.setGysname("舒肤佳国际有限公司");
-        bean5.setJhcount("1300");
-        bean5.setPrice("978");
-        list.add(bean5);
+        btn_search.setOnClickListener(this);
     }
 
     private void initView() {
-        ruku_record_recy.setAdapter(new RukuRecordAdapter(RuKuRecordActivity.this, list));
+        ruku_record_recy.setAdapter(new RuKuRecordAdapter(RuKuRecordActivity.this, bean));
         ruku_record_recy.setLayoutManager(new LinearLayoutManager(this));
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("正在请求入库记录数据");
+        layout_swipe.setOnRefreshListener(this);
+        layout_swipe.setColorSchemeColors(getResources().getColor(android.R.color.holo_blue_bright),
+                getResources().getColor(android.R.color.holo_green_light),
+                getResources().getColor(android.R.color.holo_orange_light),
+                getResources().getColor(android.R.color.holo_red_light)
+        );
+        dialog.show();
+        requestData();
     }
 
     private void bindSp() {
-        String[] s1 = {"生产企业名称", "通用名称", "规格", "商品名称", "批准文号", "内码", "库存数量", "单价"};
+        String[] s1 = {"生产企业名称", "通用名称", "规格", "商品名称", "批准文号", "企业内码"};
         String[] s2 = {"包括", "等于"};
         ArrayAdapter adapter = new ArrayAdapter<String>(RuKuRecordActivity.this,
                 android.R.layout.simple_spinner_item, Arrays.asList(s1));
@@ -135,6 +111,11 @@ public class RuKuRecordActivity extends BaseActivity implements View.OnClickList
                 Intent intent = new Intent(this, RuKuNextActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btn_search:
+                ((RuKuRecordAdapter) ruku_record_recy.getAdapter()).search(sp_condition.getSelectedItem().toString(),
+                        sp_condition_1.getSelectedItem().toString(), et_search.getText().toString());
+                break;
+
         }
     }
 
@@ -165,5 +146,35 @@ public class RuKuRecordActivity extends BaseActivity implements View.OnClickList
                 return false;
             }
         });
+    }
+
+    private void requestData() {
+        RequestParams params = new RequestParams();
+        params.addFormDataPart("USERID", SPUtils.getInstance().getData(Contance.USERID, "", String.class));
+        HttpRequest.post(Contance.BASE_URL + "GetRKHistory.ashx", params, new RequestCallBack<RuKuRecordBean>() {
+            @Override
+            public void onFailure(Exception e) {
+                dialog.dismiss();
+                layout_swipe.setRefreshing(false);
+                ToastUtils.showShort(RuKuRecordActivity.this, e.getMessage());
+            }
+
+            @Override
+            public void getData(RuKuRecordBean bean) {
+                dialog.dismiss();
+                layout_swipe.setRefreshing(false);
+                if (bean.getErrCode() == 0) {
+                    ToastUtils.showShort(RuKuRecordActivity.this, "数据获取成功");
+                    ((RuKuRecordAdapter) ruku_record_recy.getAdapter()).setBean(bean);
+                } else {
+                    ToastUtils.showShort(RuKuRecordActivity.this, bean.getErrMsg());
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onRefresh() {
+        requestData();
     }
 }

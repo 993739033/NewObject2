@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:id="@+id/layout_profit_list_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_selector"
+                android:clickable="true">
+
+
+                <TableRow>
+
+
+                    <TextView
+                        android:id="@+id/tv_siliao_1"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="生产企业名称"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:textColor="@color/gray_1"
+                        android:id="@+id/tv_company_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text="" />
+
+
+                </TableRow>
+
+
+                <TableRow>
+
+
+                    <TextView
+                        android:id="@+id/tv_siliao_2"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="通用名称"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:textColor="@color/gray_1"
+                        android:id="@+id/tv_normal_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text="" />
+
+
+                </TableRow>
+
+
+                <TableRow>
+
+
+                    <TextView
+                        android:id="@+id/tv_siliao_3"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="规格"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:textColor="@color/gray_1"
+                        android:id="@+id/tv_spec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:text="" />
+
+
+                </TableRow>
+
+
+                <TableRow>
+
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:text="商品名称"
+                        android:textColor="@color/black" />
+
+
+                    <TextView
+                        android:textColor="@color/gray_1"
+                        android:id="@+id/tv_goods_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="" />
+
+
+                </TableRow>
+
+
+                <TableLayout
+                    android:visibility="gone"
+                    android:id="@+id/layout_more"
+                    android:layout_width="match_parent"
+                    android:layout_height="340dp"
+                    android:orientation="vertical">
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="批准文号"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_pz_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="销售数量"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_sale_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="供应商名称"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_gys_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="生产批号"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_sc_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="生产日期"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_sc_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="单位"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="销售单价(元)"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_sale_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="进货价格(元)"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_buy_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="销售毛利(元)"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_sale_profit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="状态"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_state"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                    <TableRow>
+
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center_vertical"
+                            android:text="商品类型"
+                            android:textColor="@color/black" />
+
+
+                        <TextView
+                            android:textColor="@color/gray_1"
+                            android:id="@+id/tv_goods_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="20dp"
+                            android:layout_weight="1"
+                            android:text="" />
+
+
+                    </TableRow>
+
+
+                </TableLayout>
+            </TableLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_show_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/down_arrow_16" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

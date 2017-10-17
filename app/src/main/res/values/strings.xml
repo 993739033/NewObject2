@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewObject</string>
+    <string name="title_activity_forget_password">ForgetPasswordActivity</string>
+    <string name="title_activity_modify_password">ModifyPasswordActivity</string>
+</resources>
