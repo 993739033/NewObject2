@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:orientation="vertical"
     tools:context="com.example.mnkj.newobject.Activity.KuCunActivity">
 
     <View
@@ -70,15 +70,16 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:gravity="center"
-                android:clickable="true"
-                android:id="@+id/sp_condition"
+                android:id="@+id/tv_condition"
                 android:layout_width="80dp"
                 android:layout_height="@dimen/normal_h"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/et_input_select"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingLeft="-10dp"
                 android:singleLine="true"
                 android:textColor="@color/black"></TextView>
 
@@ -89,20 +90,23 @@
                 android:text="至" />
 
             <TextView
-                android:gravity="center"
-                android:clickable="true"
-                android:id="@+id/sp_condition_1"
+                android:id="@+id/tv_condition_1"
                 android:layout_width="80dp"
                 android:layout_height="@dimen/normal_h"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/et_input_select"
+                android:clickable="true"
+                android:gravity="center"
+                android:paddingLeft="-10dp"
                 android:singleLine="true"
                 android:textColor="@color/black">
 
             </TextView>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btn_search"
                 android:layout_width="60dp"
                 android:layout_height="@dimen/normal_h"
                 android:layout_marginLeft="5dp"
@@ -126,7 +130,7 @@
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/et_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
@@ -140,11 +144,18 @@
         </LinearLayout>
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/profit_recy"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/layout_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/profit_recy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

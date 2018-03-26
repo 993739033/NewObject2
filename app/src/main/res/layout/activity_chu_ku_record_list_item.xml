@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.mnkj.newobject.Activity.KuCunItemActivity">
+    tools:context="com.example.mnkj.newobject.Activity.KuCunBFItemActivity">
 
     <View
         android:layout_width="match_parent"

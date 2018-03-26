@@ -181,11 +181,39 @@ public class DateUtil {
         String nowtime = formatter.format(mDate);
         return nowtime;
     }
+
     //根据当前时间生成订单编号
-    public static String getDDBH(){
+    public static String getDDBH() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmssSS");
         java.sql.Date mDate = new java.sql.Date(System.currentTimeMillis());
         String nowtime = formatter.format(mDate);
         return nowtime;
     }
+
+    //将2017/10/13 0:00:00  转换为2017-10-13 格式
+    public static String changeFormat(String d) {
+        try {
+            String date = d.substring(0, d.indexOf(":") - 1);
+            String s2[] = date.trim().split("/");
+            String date1 = s2[0] + "-" + s2[1] + "-" + s2[2];
+            return date1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return d;
+        }
+    }
+
+    //获取当前时间的int 数组
+    public static int[] getNowTimes() {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        java.sql.Date mDate = new java.sql.Date(System.currentTimeMillis());
+        String nowtime = formatter.format(mDate);
+        String[] ts = nowtime.split("-");
+        int[] times = new int[3];
+        for (int i = 0; i < ts.length; i++) {
+            times[i] = Integer.parseInt(ts[i]);
+        }
+        return times;
+    }
+
 }

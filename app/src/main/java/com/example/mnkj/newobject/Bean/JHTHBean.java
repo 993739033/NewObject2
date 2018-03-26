@@ -1,55 +1,133 @@
 package com.example.mnkj.newobject.Bean;
 
-import com.example.mnkj.newobject.Base.BaseObjectEntity;
+import com.example.mnkj.newobject.Base.BaseMsg;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by mnkj on 2017/10/13.
+ * 进货退货扫描bean
  */
 
-public class KuCunCountBean extends BaseObjectEntity<List<KuCunCountBean.data>> implements Serializable {
+public class JHTHBean extends BaseMsg {
+    private List<DataList> data;
 
-    //    {"errorCode" : 0,"errorMsg" : "success","dataList" :[{"FSuserId":"1",
-// "FProductEnterprise":"南京日升昌生物技术有限公司","FTyName":"恩诺沙星粉（水产用）"
-// ,"FGuige":"5%","FProductName":"","FSm1":"201607120049100007470711",
-// "Yplx":"处方药","YpArea":"尽可能","FGysmc":"22",
-// "FScph":"2016101801","FStoreHj":"吞没","FDljg":"不",
-// "FNmcode":"56885","FPzwh":"兽药字（2012）100589106","FKcsl":"1",
-// "FYxqDate":"2018/10/18 0:00:00","FDw":"盒",
-// "FDjPrice":"56.00","FSjPrice":"56.00","FDljg1":"不"}]}
-    private List<KuCunCountBean.data> dataList;
-
-    public List<KuCunCountBean.data> getDataList() {
-        return dataList;
+    public List<DataList> getDataList() {
+        return data;
     }
 
-    public void setDataList(List<KuCunCountBean.data> dataList) {
-        this.dataList = dataList;
+    public void setDataList(List<DataList> dataList) {
+        this.data = dataList;
     }
 
-    public class data {
-        private String FSuserId;
-        private String FProductEnterprise;
-        private String FTyName;
-        private String FGuige;
-        private String FProductName;
-        private String FSm1;
-        private String Yplx;
-        private String YpArea;
-        private String FGysmc;
-        private String FScph;
-        private String FStoreHj;
-        private String FDljg;
-        private String FNmcode;
-        private String FPzwh;
-        private String FKcsl;
-        private String FYxqDate;
-        private String FDw;
-        private String FDjPrice;
-        private String FSjPrice;
-        private String FDljg1;
+    public class DataList implements Serializable {
+        private Boolean bemodfiyed = false;
+
+        private Boolean bechecked = false;
+
+        private String FStId;//唯一id
+        private String FSuserId;//用户id
+        private String FProductEnterprise;//企业名称
+        private String FTyName;//通用名称
+        private String FGuige;//规格
+        private String FProductName;//商品名称
+        private String FSm1;//追溯码
+        private String Yplx;//药品类型
+        private String YpArea;//存放区域
+        private String FGysmc;//供应商名称
+        private String FScph;//生产批号
+        private String FStoreHj;//存储环境
+        private String FDljg;//代理机构
+        private String FNmcode;//内码
+        private String FPzwh;//批准文号
+        private String FKcsl;//库存数量
+        private String FYxqDate;//有效期
+        private String FDw;//单位
+        private String FDjPrice;//购买价格
+        private String FSjPrice;//销售价格
+        private String FScDate;//生产日期
+
+        private String FJesum;//金额总计
+
+        private String FBuyNum;//退货数量
+
+
+        private String FXgzsh;//相关证书号
+        private String FLxr;//联系人
+        private String FLxrdh;//联系人电话
+        private String SyGmp;//gmp证书号
+
+        public String getFXgzsh() {
+            return FXgzsh;
+        }
+
+        public void setFXgzsh(String FXgzsh) {
+            this.FXgzsh = FXgzsh;
+        }
+
+        public String getFLxr() {
+            return FLxr;
+        }
+
+        public void setFLxr(String FLxr) {
+            this.FLxr = FLxr;
+        }
+
+        public String getFLxrdh() {
+            return FLxrdh;
+        }
+
+        public void setFLxrdh(String FLxrdh) {
+            this.FLxrdh = FLxrdh;
+        }
+
+        public String getSyGmp() {
+            return SyGmp;
+        }
+
+        public void setSyGmp(String syGmp) {
+            SyGmp = syGmp;
+        }
+
+        public String getFBuyNum() {
+            return FBuyNum;
+        }
+
+        public void setFBuyNum(String FBuyNum) {
+            this.FBuyNum = FBuyNum;
+        }
+
+        public String getFJesum() {
+            return FJesum;
+        }
+
+        public void setFJesum(String FJesum) {
+            this.FJesum = FJesum;
+        }
+
+        public Boolean getBechecked() {
+            return bechecked;
+        }
+
+        public void setBechecked(Boolean bechecked) {
+            this.bechecked = bechecked;
+        }
+
+        public Boolean getBemodfiyed() {
+            return bemodfiyed;
+        }
+
+        public void setBemodfiyed(Boolean bemodfiyed) {
+            this.bemodfiyed = bemodfiyed;
+        }
+
+        public String getFStId() {
+            return FStId;
+        }
+
+        public void setFStId(String FStId) {
+            this.FStId = FStId;
+        }
 
         public String getFSuserId() {
             return FSuserId;
@@ -203,13 +281,12 @@ public class KuCunCountBean extends BaseObjectEntity<List<KuCunCountBean.data>> 
             this.FSjPrice = FSjPrice;
         }
 
-        public String getFDljg1() {
-            return FDljg1;
+        public String getFScDate() {
+            return FScDate;
         }
 
-        public void setFDljg1(String FDljg1) {
-            this.FDljg1 = FDljg1;
+        public void setFScDate(String FScDate) {
+            this.FScDate = FScDate;
         }
     }
-
 }

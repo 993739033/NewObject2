@@ -27,8 +27,6 @@ import com.example.mnkj.newobject.Utils.SPUtils;
 import com.example.mnkj.newobject.Utils.ToastUtils;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -37,13 +35,13 @@ import cn.finalteam.okhttpfinal.RequestParams;
 
 //入库记录
 public class RuKuRecordActivity extends BaseActivity implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
-    @Bind(R.id.ruku_record_recy)
+    @Bind(R.id.jhth_record_recy)
     RecyclerView ruku_record_recy;
     @Bind(R.id.btn_back)
     ImageView btn_back;
-    @Bind(R.id.sp_condition)
+    @Bind(R.id.tv_condition)
     Spinner sp_condition;
-    @Bind(R.id.sp_condition_1)
+    @Bind(R.id.tv_condition_1)
     Spinner sp_condition_1;
     @Bind(R.id.et_search)
     EditText et_search;

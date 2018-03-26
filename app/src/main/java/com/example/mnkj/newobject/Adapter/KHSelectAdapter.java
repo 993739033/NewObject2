@@ -108,28 +108,28 @@ public class KHSelectAdapter extends RecyclerView.Adapter {
                 switch (condition) {
                     case "购买人姓名":
                         if (bean.getFBuyName().indexOf(content) != -1) {
-                            layout_card.setVisibility(View.VISIBLE);
+                        layout_kh_select_item.setVisibility(View.VISIBLE);
                         } else {
-                            layout_card.setVisibility(View.GONE);
+                        layout_kh_select_item.setVisibility(View.GONE);
                         }
                         break;
                     case "购买人手机":
                         if (bean.getFBuyTel().indexOf(content) != -1) {
-                            layout_card.setVisibility(View.VISIBLE);
+                            layout_kh_select_item.setVisibility(View.VISIBLE);
                         } else {
-                            layout_card.setVisibility(View.GONE);
+                            layout_kh_select_item.setVisibility(View.GONE);
                         }
                         break;
                     case "购买人地址":
                         if (bean.getFBuyAddress().indexOf(content) != -1) {
-                            layout_card.setVisibility(View.VISIBLE);
+                            layout_kh_select_item.setVisibility(View.VISIBLE);
                         } else {
-                            layout_card.setVisibility(View.GONE);
+                            layout_kh_select_item.setVisibility(View.GONE);
                         }
                         break;
                 }
             } else {
-                layout_card.setVisibility(View.VISIBLE);
+                layout_kh_select_item.setVisibility(View.VISIBLE);
             }
         }
 

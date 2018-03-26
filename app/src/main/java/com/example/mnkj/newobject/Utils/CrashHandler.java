@@ -77,7 +77,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             intent.setClass(mContext, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-            File file = new File(Environment.getExternalStorageDirectory(), "aaa.txt");
+            File file = new File(Environment.getExternalStorageDirectory(), "error.txt");
             PrintWriter pw;
             try {
                 pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));

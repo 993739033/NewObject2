@@ -15,6 +15,7 @@ import com.example.mnkj.newobject.Activity.ChuKuActivity;
 import com.example.mnkj.newobject.Bean.ScanOutputNetworkBean;
 import com.example.mnkj.newobject.R;
 import com.example.mnkj.newobject.Utils.HiddenAnimUtils;
+import com.example.mnkj.newobject.Utils.ToastUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -84,7 +85,7 @@ public class ChukuAdapter extends RecyclerView.Adapter {
             this.mDatas.add(0, bean);
             notifyDataSetChanged();
         } else {
-            Toast.makeText(mContext, "输入的追溯码与第" + repeatPosition + "条重复", Toast.LENGTH_SHORT).show();
+            ToastUtils.showShort(mContext, "输入的追溯码与第" + repeatPosition + "条重复");
         }
         judgeHint();
     }
@@ -207,7 +208,7 @@ public class ChukuAdapter extends RecyclerView.Adapter {
             tv_unit.setText(bean.getDataList().get(0).getFDw());
 
             tv_sale_price.setText(bean.getDataList().get(0).getFHdjg());
-            tv_count.setText(bean.getDataList().get(0).getFBuyNum());
+            tv_count.setText(bean.getDataList().get(0).getFXsNum());
 
             tv_splx.setText(bean.getDataList().get(0).getYplx());
             tv_dljg.setText(bean.getDataList().get(0).getFDljg());// 代理机构
@@ -328,8 +329,8 @@ public class ChukuAdapter extends RecyclerView.Adapter {
             json.put("Yplx", bean.getDataList().get(0).getYplx());//药品类型
             json.put("FSm1", bean.getDataList().get(0).getFSm1());//追溯码
             json.put("FPzwh", bean.getDataList().get(0).getFPzwh());//批准文号
-            json.put("FBuyNum", bean.getDataList().get(0).getFBuyNum());//销售数量
-            json.put("FHdjg", bean.getDataList().get(0).getFHdjg());//销售单价
+            json.put("FXsNum", bean.getDataList().get(0).getFXsNum());//销售数量
+            json.put("FDjprice", bean.getDataList().get(0).getFHdjg());//销售单价
             json.put("FGysmc", bean.getDataList().get(0).getFGysmc());//供应商名称
             json.put("FStoreHj", bean.getDataList().get(0).getFStoreHj());//存储环境要求
 

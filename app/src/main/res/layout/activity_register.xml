@@ -55,6 +55,16 @@
             android:layout_margin="5dp"
             android:orientation="vertical">
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civ_tx_select"
+                android:layout_width="@dimen/iv_circle_view_w"
+                android:layout_height="@dimen/iv_circle_view_h"
+                android:layout_gravity="center"
+                android:src="@drawable/kaola" />
+
+
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -1505,10 +1515,10 @@
             </LinearLayout>
 
             <Button
-                android:layout_margin="10dp"
-                android:background="@drawable/btn_drawable"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/btn_drawable"
                 android:text="保存" />
         </LinearLayout>
     </ScrollView>

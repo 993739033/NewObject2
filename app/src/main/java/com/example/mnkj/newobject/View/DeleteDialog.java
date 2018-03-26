@@ -1,17 +1,12 @@
 package com.example.mnkj.newobject.View;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
-import android.util.DisplayMetrics;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.mnkj.newobject.R;
@@ -28,7 +23,10 @@ public class DeleteDialog extends AlertDialog {
     TextView dialog_cancel;
     @Bind(R.id.dialog_enter)
     TextView dialog_enter;
+    @Bind(R.id.tv_title)
+    TextView tv_title;
     Context mContext;
+    String titleContent;//标题
 
     public void setCallBack(CallBack callBack) {
         this.callBack = callBack;
@@ -42,6 +40,10 @@ public class DeleteDialog extends AlertDialog {
     protected DeleteDialog(Context context) {
         super(context);
         mContext = context;
+    }
+
+    public void setTitle(String title){
+        titleContent = title;
     }
 
     protected DeleteDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
@@ -58,6 +60,9 @@ public class DeleteDialog extends AlertDialog {
         View parent = LayoutInflater.from(getContext()).inflate(R.layout.layout_delete_dialog, null);
         ButterKnife.bind(this,parent);
         setContentView(parent);
+        if (!TextUtils.isEmpty(titleContent)) {
+            tv_title.setText(titleContent);
+        }
     }
 
     @Override

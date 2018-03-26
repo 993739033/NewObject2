@@ -10,7 +10,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.TimeUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,7 +18,6 @@ import android.widget.Toast;
 
 import com.example.mnkj.newobject.Adapter.RukuAdapter;
 import com.example.mnkj.newobject.Base.BaseActivity;
-import com.example.mnkj.newobject.Base.BaseMsg;
 import com.example.mnkj.newobject.Bean.PZWHScanBean;
 import com.example.mnkj.newobject.Bean.ScanInputBean;
 import com.example.mnkj.newobject.Bean.ScanInputNetworkBean;
@@ -30,15 +28,12 @@ import com.example.mnkj.newobject.Utils.SPUtils;
 import com.example.mnkj.newobject.Net.RequestCallBack;
 import com.example.mnkj.newobject.Utils.ToastUtils;
 import com.example.mnkj.newobject.View.DeleteDialog;
-import com.google.gson.Gson;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.net.SocketTimeoutException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -291,22 +286,21 @@ public class RuKuActivity extends BaseActivity implements View.OnClickListener {
                     if (e.getMessage().contains("Internal Server Error")) {
                         inRequest = false;
                         dialog.dismiss();
-                        Toast.makeText(RuKuActivity.this, "没有查到当前药品数据,请重新扫描", Toast.LENGTH_SHORT).show();
+                        ToastUtils.showShort(RuKuActivity.this, "没有查到当前药品数据,请重新扫描");
                     } else if (e.getMessage().contains("请求失败:  服务器无响应 请重新请求")) {
                         inRequest = false;
                         dialog.dismiss();
-                        Toast.makeText(RuKuActivity.this, "服务器无响应", Toast.LENGTH_SHORT).show();
+                        ToastUtils.showShort(RuKuActivity.this, "服务器无响应");
                     } else if (e instanceof SocketTimeoutException) {
                         inRequest = false;
                         dialog.dismiss();
-                        Toast.makeText(RuKuActivity.this, "网络没有连接", Toast.LENGTH_SHORT).show();
-                    }
-                    else if (e.getMessage().contains("当前追溯码已经入库")) { //当前追溯码已经入库 请重新扫描
+                        ToastUtils.showShort(RuKuActivity.this, "网络没有连接");
+
+                    } else if (e.getMessage().contains("当前追溯码已经入库")) { //当前追溯码已经入库 请重新扫描
                         inRequest = false;
                         dialog.dismiss();
                         ToastUtils.showShort(RuKuActivity.this, e.getMessage());
-                    }
-                    else {
+                    } else {
                         requestPZWH(repString[2]);
                     }
                 }

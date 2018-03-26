@@ -117,7 +117,7 @@
             android:background="@drawable/et_input_select">
 
             <Spinner
-                android:id="@+id/sp_condition"
+                android:id="@+id/tv_condition"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></Spinner>
         </LinearLayout>

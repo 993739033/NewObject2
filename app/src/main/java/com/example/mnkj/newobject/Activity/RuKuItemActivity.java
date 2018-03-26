@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
@@ -23,7 +22,6 @@ import com.example.mnkj.newobject.Utils.DateUtil;
 import com.example.mnkj.newobject.Utils.ToastUtils;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,7 +56,7 @@ public class RuKuItemActivity extends BaseActivity implements View.OnClickListen
     EditText et_scrq;
     @Bind(R.id.et_yxrq)
     EditText et_yxrq;
-    @Bind(R.id.et_grsl)
+    @Bind(R.id.et_thsl)
     EditText et_grsl;
     @Bind(R.id.et_xsdj)
     EditText et_cgjg;

@@ -13,6 +13,7 @@
         android:orientation="vertical"
         >
     <TextView
+        android:id="@+id/tv_title"
         android:gravity="center"
         android:textColor="@color/black"
         android:text="确认删除"

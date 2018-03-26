@@ -22,7 +22,7 @@ public interface Contance {
     int RequestCode = 500;
     int ResultCode = 501;
     int SUCCESS = 600;
-    String DATA = "data";
+    String DATA = "DataList";
     String DATA_1 = "data1";
 
     int TYPE_A = 1;

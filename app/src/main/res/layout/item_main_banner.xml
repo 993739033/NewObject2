@@ -15,13 +15,13 @@
 
     </com.bigkoo.convenientbanner.ConvenientBanner>
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="入库" />
+                    android:text="进货开单" />
             </LinearLayout>
 
             <!--<View-->
@@ -106,13 +106,12 @@
                     android:layout_marginTop="5dp"
                     android:text="库存" />
             </LinearLayout>
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:orientation="horizontal">
@@ -137,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="入库记录" />
+                    android:text="进货明细" />
             </LinearLayout>
 
             <!--<View-->
@@ -196,8 +195,99 @@
                     android:layout_marginTop="5dp"
                     android:text="利润" />
             </LinearLayout>
-        </LinearLayout>
+        </TableRow>
 
-    </LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/iv_icon_7"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/z4"
+                    android:clickable="false" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="进货退货开单" />
+            </LinearLayout>
+
+            <!--<View-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/line_grey" />-->
+
+            <LinearLayout
+                android:id="@+id/iv_icon_8"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/z5"
+                    android:clickable="false" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="进货退货明细" />
+            </LinearLayout>
+
+            <!--<View-->
+            <!--android:layout_width="1dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/line_grey" />-->
+
+            <LinearLayout
+                android:id="@+id/iv_icon_9"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/z6"
+                    android:clickable="false" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="发短信" />
+            </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

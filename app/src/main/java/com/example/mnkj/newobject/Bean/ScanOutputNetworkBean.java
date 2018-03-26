@@ -23,7 +23,7 @@ public class ScanOutputNetworkBean extends BaseObjectEntity<List<ScanOutputNetwo
 //          "FProductName": "",
 //          "FPzwh": "",
 //          "FYxqDate": "2018/10/18 0:00:00",
-//          "FBuyNum": "0",
+//          "FXsNum": "0",
 //          "FDw": "盒",
 //          "FCgdj": "0.00",
 //          "FHdjg": "0.00",
@@ -59,11 +59,11 @@ public class ScanOutputNetworkBean extends BaseObjectEntity<List<ScanOutputNetwo
     public class data implements Serializable {
 
         private Boolean beChecked = false;//cb
-        private Boolean bemodfiyed = false;//判断item折叠
+        private Boolean bemodfiyed = false;//判断item 是否被修改
 
         private String mytId;
         private String FProductEnterprise;//生产企业名称
-        private String FBuyNum;//销售数量
+        private String FXsNum;//销售数量
         private String FTyName;//通用名称
         private String FGuige;//规格
         private String FProductName;//商品名称
@@ -161,12 +161,12 @@ public class ScanOutputNetworkBean extends BaseObjectEntity<List<ScanOutputNetwo
             this.FProductEnterprise = FProductEnterprise;
         }
 
-        public String getFBuyNum() {
-            return FBuyNum;
+        public String getFXsNum() {
+            return FXsNum;
         }
 
-        public void setFBuyNum(String FBuyNum) {
-            this.FBuyNum = FBuyNum;
+        public void setFXsNum(String FXsNum) {
+            this.FXsNum = FXsNum;
         }
 
         public String getFTyName() {

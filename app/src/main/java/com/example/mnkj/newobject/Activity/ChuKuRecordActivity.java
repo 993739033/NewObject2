@@ -16,10 +16,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.example.mnkj.newobject.Adapter.ChukuRecordAdapter;
-import com.example.mnkj.newobject.Adapter.KHSelectAdapter;
 import com.example.mnkj.newobject.Base.BaseActivity;
 import com.example.mnkj.newobject.Bean.ChuKuRecordBean;
-import com.example.mnkj.newobject.Bean.KHBean;
 import com.example.mnkj.newobject.Contance;
 import com.example.mnkj.newobject.Net.RequestCallBack;
 import com.example.mnkj.newobject.R;
@@ -29,8 +27,6 @@ import com.example.mnkj.newobject.Utils.SPUtils;
 import com.example.mnkj.newobject.Utils.ToastUtils;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,9 +39,9 @@ public class ChuKuRecordActivity extends BaseActivity implements View.OnClickLis
     RecyclerView chuku_record_recy;
     @Bind(R.id.btn_back)
     ImageView btn_back;
-    @Bind(R.id.sp_condition)
+    @Bind(R.id.tv_condition)
     Spinner sp_condition;
-    @Bind(R.id.sp_condition_1)
+    @Bind(R.id.tv_condition_1)
     Spinner sp_condition_1;
     @Bind(R.id.sp_condition_2)
     Spinner sp_condition_2;
@@ -55,7 +51,8 @@ public class ChuKuRecordActivity extends BaseActivity implements View.OnClickLis
     Button btn_search;
     @Bind(R.id.layout_more)
     View layout_more;
-    private List<ChuKuRecordBean> list = new LinkedList<>();
+
+    private ChuKuRecordBean bean = new ChuKuRecordBean();
 
     @Bind(R.id.layout_swipe)
     SwipeRefreshLayout layout_swipe;
@@ -74,16 +71,15 @@ public class ChuKuRecordActivity extends BaseActivity implements View.OnClickLis
 
     private void initListener() {
         btn_back.setOnClickListener(this);
+        btn_search.setOnClickListener(this);
     }
 
 
     private void initView() {
-        chuku_record_recy.setAdapter(new ChukuRecordAdapter(ChuKuRecordActivity.this, list));
-        chuku_record_recy.setLayoutManager(new LinearLayoutManager(this));
-        chuku_record_recy.setAdapter(new ChukuRecordAdapter(ChuKuRecordActivity.this, list));
+        chuku_record_recy.setAdapter(new ChukuRecordAdapter(ChuKuRecordActivity.this, bean));
         chuku_record_recy.setLayoutManager(new LinearLayoutManager(this));
         dialog = new ProgressDialog(this);
-        dialog.setMessage("正在请求入库记录数据");
+        dialog.setMessage("正在请求出库记录数据");
         layout_swipe.setOnRefreshListener(this);
         layout_swipe.setColorSchemeColors(getResources().getColor(android.R.color.holo_blue_bright),
                 getResources().getColor(android.R.color.holo_green_light),
@@ -95,7 +91,7 @@ public class ChuKuRecordActivity extends BaseActivity implements View.OnClickLis
     }
 
     private void bindSp() {
-        String[] s1 = {"生产企业名称", "通用名称", "规格", "商品名称", "批准文号", "内码", "库存数量", "单价"};
+        String[] s1 = {"生产企业名称", "通用名称", "规格", "商品名称", "批准文号", "企业内码", "供应商名称", "购买人姓名"};
         String[] s2 = {"包括", "等于"};
         String[] s3 = {"销售", "退回厂家"};
         // 初始化下拉列表加载数据适配器
@@ -129,13 +125,18 @@ public class ChuKuRecordActivity extends BaseActivity implements View.OnClickLis
                 Intent intent = new Intent(this, RuKuNextActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.btn_search:
+                ((ChukuRecordAdapter) chuku_record_recy.getAdapter()).search(sp_condition.getSelectedItem().toString(),
+                        sp_condition_1.getSelectedItem().toString(), sp_condition_2.getSelectedItem().toString()
+                        , et_search.getText().toString());
+                break;
         }
     }
 
     private void requestData() {
         RequestParams params = new RequestParams();
         params.addFormDataPart("USERID", SPUtils.getInstance().getData(Contance.USERID, "", String.class));
-        HttpRequest.post(Contance.BASE_URL + "GetChuKuHistory.ash", params, new RequestCallBack<KHBean>() {
+        HttpRequest.post(Contance.BASE_URL + "GetCKHistory.ashx", params, new RequestCallBack<ChuKuRecordBean>() {
             @Override
             public void onFailure(Exception e) {
                 dialog.dismiss();
@@ -144,12 +145,12 @@ public class ChuKuRecordActivity extends BaseActivity implements View.OnClickLis
             }
 
             @Override
-            public void getData(KHBean bean) {
+            public void getData(ChuKuRecordBean bean) {
                 dialog.dismiss();
                 layout_swipe.setRefreshing(false);
                 if (bean.getErrCode() == 0) {
                     ToastUtils.showShort(ChuKuRecordActivity.this, "数据获取成功");
-                    ((KHSelectAdapter) chuku_record_recy.getAdapter()).setBean(bean);
+                    ((ChukuRecordAdapter) chuku_record_recy.getAdapter()).setBean(bean);
                 } else {
                     ToastUtils.showShort(ChuKuRecordActivity.this, bean.getErrMsg());
                 }

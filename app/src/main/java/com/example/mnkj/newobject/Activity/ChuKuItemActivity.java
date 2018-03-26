@@ -12,10 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.mnkj.newobject.Base.BaseActivity;
-import com.example.mnkj.newobject.Bean.KuCunCountBean;
+import com.example.mnkj.newobject.Bean.KuCunBean;
 import com.example.mnkj.newobject.Bean.ScanOutputNetworkBean;
 import com.example.mnkj.newobject.Contance;
 import com.example.mnkj.newobject.Net.RequestCallBack;
@@ -24,7 +23,6 @@ import com.example.mnkj.newobject.Utils.SPUtils;
 import com.example.mnkj.newobject.Utils.ToastUtils;
 
 import java.math.BigDecimal;
-import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +31,7 @@ import butterknife.ButterKnife;
 import cn.finalteam.okhttpfinal.HttpRequest;
 import cn.finalteam.okhttpfinal.RequestParams;
 
-//入库列表修改界面
+//出库列表修改界面
 public class ChuKuItemActivity extends BaseActivity implements View.OnClickListener {
     @Bind(R.id.btn_back)
     ImageView btn_back;
@@ -61,7 +59,7 @@ public class ChuKuItemActivity extends BaseActivity implements View.OnClickListe
     EditText et_scrq;
     @Bind(R.id.et_yxrq)
     EditText et_yxrq;
-    @Bind(R.id.et_grsl)
+    @Bind(R.id.et_thsl)
     EditText et_xssl;
     @Bind(R.id.et_xsdj)
     EditText et_xsdj;
@@ -108,7 +106,7 @@ public class ChuKuItemActivity extends BaseActivity implements View.OnClickListe
         et_scph.setText(bean.getDataList().get(0).getFScph());//生产批号
         et_scrq.setText(bean.getDataList().get(0).getFScDate());//生产日期
         et_yxrq.setText(bean.getDataList().get(0).getFYxqDate());//有效日期
-        et_xssl.setText(bean.getDataList().get(0).getFBuyNum());//销售数量
+        et_xssl.setText(bean.getDataList().get(0).getFXsNum());//销售数量
         et_xsdj.setText(bean.getDataList().get(0).getFHdjg() + "");//销售价格
         et_jezj.setText(bean.getDataList().get(0).getFJesum());//金额总计
         et_nm.setText(bean.getDataList().get(0).getFNmcode());//内码
@@ -259,23 +257,21 @@ public class ChuKuItemActivity extends BaseActivity implements View.OnClickListe
         if (TextUtils.isEmpty(et_scph.getText().toString())) {
             ToastUtils.showShort(this, "生产批号不能为空");
             return false;
+        } else if (TextUtils.isEmpty(et_xssl.getText().toString())) {
+            ToastUtils.showShort(this, "销售数量不能为空");
+            return false;
         } else if (Integer.parseInt(et_xssl.getText().toString()) == 0) {
             ToastUtils.showShort(this, "销售数量不能为零");
             return false;
         } else if (Integer.parseInt(et_xssl.getText().toString()) > KCCount) {
             ToastUtils.showLong(this, "销售数量不能大于当前库存数量（当前库存" + KCCount + ")");
             return false;
-        } else {
-            if (TextUtils.isEmpty(et_xssl.getText().toString())) {
-                ToastUtils.showShort(this, "购入数量不能为空");
-                return false;
-            }
         }
         return true;
     }
 
     private ScanOutputNetworkBean getBean() {
-        bean.getDataList().get(0).setFBuyNum(et_xssl.getText().toString());
+        bean.getDataList().get(0).setFXsNum(et_xssl.getText().toString());
         bean.getDataList().get(0).setFJesum(et_jezj.getText().toString());
         bean.getDataList().get(0).setFHdjg(et_xsdj.getText().toString());
         bean.getDataList().get(0).setBemodfiyed(true);
@@ -288,7 +284,7 @@ public class ChuKuItemActivity extends BaseActivity implements View.OnClickListe
         params.addFormDataPart("FSuserId", SPUtils.getInstance().getData(Contance.USERID, "", String.class));
         params.addFormDataPart("FSm1", bean.getDataList().get(0).getFSm1());
         dialog.show();
-        HttpRequest.post(Contance.BASE_URL + "GetAPPKC.ashx", params, new RequestCallBack<KuCunCountBean>() {
+        HttpRequest.post(Contance.BASE_URL + "GetAPPKC.ashx", params, new RequestCallBack<KuCunBean>() {
             @Override
             public void onFailure(Exception e) {
                 dialog.dismiss();
@@ -297,7 +293,7 @@ public class ChuKuItemActivity extends BaseActivity implements View.OnClickListe
             }
 
             @Override
-            public void getData(KuCunCountBean bean) {
+            public void getData(KuCunBean bean) {
                 dialog.dismiss();
                 KCCount = Integer.parseInt(bean.getDataList().get(0).getFKcsl());
                 et_xssl.setHint("当前库存为:" + KCCount);

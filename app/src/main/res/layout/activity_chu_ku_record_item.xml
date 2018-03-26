@@ -53,26 +53,26 @@
 
     </android.support.v7.widget.RecyclerView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/white"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
 
-        <Button
-            android:id="@+id/btn_select_all"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/normal_h"
-            android:layout_margin="5dp"
-            android:background="@drawable/btn_drawable"
-            android:text="全选" />
+        <!--<Button-->
+            <!--android:id="@+id/btn_select_all"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="@dimen/normal_h"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:background="@drawable/btn_drawable"-->
+            <!--android:text="全选" />-->
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/normal_h"
-            android:layout_margin="5dp"
-            android:background="@drawable/btn_drawable"
-            android:text="打印" />
-    </LinearLayout>
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="@dimen/normal_h"-->
+            <!--android:layout_margin="5dp"-->
+            <!--android:background="@drawable/btn_drawable"-->
+            <!--android:text="打印" />-->
+    <!--</LinearLayout>-->
 </LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context="com.example.mnkj.newobject.Activity.KuCunActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_padding_top"
+        android:background="#2B2B2B"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#2B2B2B"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="库存报废处理"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:text="下一步"
+            android:textColor="@color/tv_select"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/kucun_bf_recy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:focusable="true">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

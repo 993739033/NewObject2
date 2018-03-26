@@ -10,6 +10,13 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+     
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:name=".Base.MyApplication"
@@ -82,7 +89,7 @@
             android:theme="@style/TranslucentTheme"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".Activity.KuCunItemActivity"
+            android:name=".Activity.KuCunBFItemActivity"
             android:theme="@style/TranslucentTheme"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
@@ -125,9 +132,38 @@
         <activity
             android:name=".Activity.RuKuPZWHResultSelectActivity"
             android:theme="@style/TranslucentTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".Activity.KHSelectActivity"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Activity.PhoneSelectActivity"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Activity.KuCunBFActivity"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Activity.KuCunBFNextActivity"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity android:name=".Activity.WebActivity" />
+        <activity
+            android:name=".Activity.JHTHActivity"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Activity.JHTHItemActivity"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Activity.JHTHRecordActivity"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".Activity.SendMsgActivity"
             android:theme="@style/TranslucentTheme"
             android:windowSoftInputMode="stateHidden|adjustPan"></activity>
     </application>

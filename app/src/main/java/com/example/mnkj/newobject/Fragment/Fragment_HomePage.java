@@ -34,7 +34,7 @@ public class Fragment_HomePage extends Fragment {
         View inflate = inflater.inflate(R.layout.fragment1, container, false);
         recy = inflate.findViewById(R.id.main_recy);
         initData();
-        MainAdapter adapter = new MainAdapter(list);
+        MainAdapter adapter = new MainAdapter(list,getContext());
         recy.setAdapter(adapter);
         recy.setLayoutManager(new LinearLayoutManager(getContext()));
         recy.addItemDecoration(new DividerDecoration(getContext(), DividerDecoration.VERTICAL_LIST));

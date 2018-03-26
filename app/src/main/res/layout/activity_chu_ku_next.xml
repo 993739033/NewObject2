@@ -284,6 +284,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:inputType="number"
                     android:id="@+id/et_gmr_phone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/et_input_register"

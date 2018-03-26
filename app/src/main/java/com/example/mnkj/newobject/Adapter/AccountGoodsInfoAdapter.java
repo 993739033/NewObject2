@@ -10,9 +10,6 @@ import android.widget.TextView;
 import com.example.mnkj.newobject.Bean.GoodsInfoBean;
 import com.example.mnkj.newobject.R;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -21,12 +18,26 @@ import butterknife.ButterKnife;
  */
 //商品信息
 public class AccountGoodsInfoAdapter extends RecyclerView.Adapter {
-    private List<GoodsInfoBean> list = new LinkedList<>();
+
+    private GoodsInfoBean goodBean;
     private LayoutInflater inflater;
     private Context context;
 
-    public AccountGoodsInfoAdapter(List<GoodsInfoBean> list, Context context) {
-        this.list = list;
+    public void addBean(GoodsInfoBean bean) {
+        if (this.goodBean.getDataList() == null) {
+            this.goodBean = bean;
+        } else {
+            this.goodBean.getDataList().addAll(bean.getDataList());
+        }
+        notifyDataSetChanged();
+    }
+
+    public void clearBean(){
+        goodBean.getDataList().clear();
+    }
+
+    public AccountGoodsInfoAdapter(GoodsInfoBean goodBean, Context context) {
+        this.goodBean = goodBean;
         this.context = context;
         inflater = LayoutInflater.from(context);
     }
@@ -39,13 +50,13 @@ public class AccountGoodsInfoAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        GoodsInfoBean bean = list.get(position);
+        GoodsInfoBean.DataList bean = goodBean.getDataList().get(position);
         ((viewHolder) holder).bindView(bean);
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return goodBean.getDataList() == null ? 0 : goodBean.getDataList().size();
     }
 
     static class viewHolder extends RecyclerView.ViewHolder {
@@ -69,17 +80,13 @@ public class AccountGoodsInfoAdapter extends RecyclerView.Adapter {
             ButterKnife.bind(this, itemView);
         }
 
-        private void bindView(GoodsInfoBean bean) {
-            tv_company_name.setText(bean.getCompany());
-            tv_normal_name.setText(bean.getNormalname());
-            tv_goods_name.setText(bean.getGoodsname());
-            tv_spec.setText(bean.getSpec());
-            tv_pz_number.setText(bean.getPznumber());
-            tv_goods_type.setText(bean.getGoodstype());
-        }
-
-        private void setClickListener(View.OnClickListener listener) {
-            layout_goods_info_item.setOnClickListener(listener);
+        private void bindView(GoodsInfoBean.DataList bean) {
+            tv_company_name.setText(bean.getProductEnterPrise());
+            tv_normal_name.setText(bean.getFTyName());
+            tv_goods_name.setText(bean.getProductName());
+            tv_spec.setText(bean.getGuige());
+            tv_pz_number.setText(bean.getPzwh());
+            tv_goods_type.setText(bean.getYplx());
         }
     }
 }

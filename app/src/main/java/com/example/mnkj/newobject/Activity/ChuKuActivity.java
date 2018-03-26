@@ -284,11 +284,11 @@ public class ChuKuActivity extends BaseActivity implements View.OnClickListener 
                 inRequest = false;
                 dialog.dismiss();
                 if (e.getMessage().contains("Internal Server Error")) {
-                    Toast.makeText(ChuKuActivity.this, "没有查到当前药品数据,请重新扫描", Toast.LENGTH_SHORT).show();
+                    ToastUtils.showShort(ChuKuActivity.this, "没有查到当前药品数据,请重新扫描");
                 } else if (e.getMessage().contains("请求失败:  服务器无响应 请重新请求")) {
-                    Toast.makeText(ChuKuActivity.this, "服务器无响应", Toast.LENGTH_SHORT).show();
+                    ToastUtils.showShort(ChuKuActivity.this, "服务器无响应");
                 } else if (e instanceof SocketTimeoutException) {
-                    Toast.makeText(ChuKuActivity.this, "网络没有连接", Toast.LENGTH_SHORT).show();
+                    ToastUtils.showShort(ChuKuActivity.this, "网络没有连接");
                 } else {
                     ToastUtils.showShort(ChuKuActivity.this, e.getMessage());
                 }

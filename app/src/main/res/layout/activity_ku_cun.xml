@@ -36,7 +36,6 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginLeft="-60dp"
             android:gravity="center"
             android:text="库存管理"
             android:textColor="#FFFFFF"
@@ -46,6 +45,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:clickable="true"
+            android:text="设置提醒"
+            android:textColor="@color/tv_select"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -115,7 +124,7 @@
             android:background="@drawable/et_input_select">
 
             <Spinner
-                android:id="@+id/sp_condition"
+                android:id="@+id/tv_condition"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></Spinner>
         </LinearLayout>
@@ -128,73 +137,28 @@
             android:background="@drawable/et_input_select">
 
             <Spinner
-                android:id="@+id/sp_condition_1"
+                android:id="@+id/tv_condition_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></Spinner>
         </LinearLayout>
 
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="5dp"
-        android:background="@color/line_gray" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="5dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/normal_h"
-            android:background="@drawable/btn_drawable"
-            android:padding="5dp"
-            android:text="设置库存提醒" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="3dp"
-            android:text="距离有效期"
-            android:textColor="@color/black" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/et_input_select" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="天"
-            android:textColor="@color/black" />
-
-        <Button
-            android:layout_width="60dp"
-            android:layout_height="@dimen/normal_h"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/btn_drawable"
-            android:text="查询" />
-    </LinearLayout>
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/kucun_recy"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/layout_swipe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:focusable="true"
         android:layout_weight="1">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/kucun_recy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:focusable="true">
+
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -213,6 +177,7 @@
             android:text="全选" />
 
         <Button
+            android:id="@+id/btn_bfcl"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/normal_h"
             android:layout_margin="5dp"

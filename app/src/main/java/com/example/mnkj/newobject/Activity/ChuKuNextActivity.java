@@ -113,14 +113,17 @@ public class ChuKuNextActivity extends BaseActivity implements View.OnClickListe
                         return;
                     }
                 }
+                if (getBeClicked()) return;
                 if (checkData()) {
                     try {
+                        setBeClicked(true);
                         if (canInput) {
                             uploadKHInfo();
                         } else {
                             uploadItem();
                         }
                     } catch (JSONException e) {
+                        setBeClicked(false);
                         e.printStackTrace();
                     }
                 }
@@ -206,6 +209,7 @@ public class ChuKuNextActivity extends BaseActivity implements View.OnClickListe
             @Override
             public void onFailure(Exception e) {
                 dialog.dismiss();
+                setBeClicked(false);
                 ToastUtils.showShort(ChuKuNextActivity.this, e.getMessage());
             }
 

@@ -115,7 +115,7 @@
             android:background="@drawable/et_input_select">
 
             <Spinner
-                android:id="@+id/sp_condition"
+                android:id="@+id/tv_condition"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></Spinner>
         </LinearLayout>
@@ -128,18 +128,28 @@
             android:background="@drawable/et_input_select">
 
             <Spinner
-                android:id="@+id/sp_condition_1"
+                android:id="@+id/tv_condition_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"></Spinner>
         </LinearLayout>
 
     </LinearLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/account_goods_list_recy"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart_ref"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/account_goods_list_recy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

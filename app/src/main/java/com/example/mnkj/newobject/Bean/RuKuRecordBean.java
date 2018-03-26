@@ -8,7 +8,7 @@ import java.util.List;
  * Created by mnkj on 2017/9/13.
  */
 //入库记录
-public class RuKuRecordBean extends BaseMsg{
+public class RuKuRecordBean extends BaseMsg {
     private List<RuKuRecordBean.DataList> dataList;
 
     public List<DataList> getDataList() {
@@ -18,7 +18,19 @@ public class RuKuRecordBean extends BaseMsg{
     public void setDataList(List<DataList> dataList) {
         this.dataList = dataList;
     }
-    public class DataList{
+
+    public class DataList {
+
+        private boolean beClicked = false;//判断是否被点击
+
+        public boolean isBeClicked() {
+            return beClicked;
+        }
+
+        public void setBeClicked(boolean beClicked) {
+            this.beClicked = beClicked;
+        }
+
         private String FStId;
 
         private String FSm1;

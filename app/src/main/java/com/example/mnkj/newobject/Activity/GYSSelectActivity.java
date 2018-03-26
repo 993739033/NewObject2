@@ -1,13 +1,7 @@
 package com.example.mnkj.newobject.Activity;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +16,6 @@ import android.widget.Spinner;
 
 import com.example.mnkj.newobject.Adapter.GYSSelectAdapter;
 import com.example.mnkj.newobject.Base.BaseActivity;
-import com.example.mnkj.newobject.Base.BaseMsg;
 import com.example.mnkj.newobject.Bean.GYSBean;
 import com.example.mnkj.newobject.Contance;
 import com.example.mnkj.newobject.Net.RequestCallBack;
@@ -31,18 +24,13 @@ import com.example.mnkj.newobject.Utils.HiddenAnimUtils;
 import com.example.mnkj.newobject.Utils.KeyBoard;
 import com.example.mnkj.newobject.Utils.SPUtils;
 import com.example.mnkj.newobject.Utils.ToastUtils;
-import com.google.gson.Gson;
 
 import java.util.Arrays;
 
 import butterknife.Bind;
-import butterknife.BindColor;
 import butterknife.ButterKnife;
 import cn.finalteam.okhttpfinal.HttpRequest;
 import cn.finalteam.okhttpfinal.RequestParams;
-
-import static com.example.mnkj.newobject.R.id.btn_search;
-import static com.example.mnkj.newobject.R.id.sp_condition;
 
 //供应商列表数据请求
 public class GYSSelectActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener, View.OnClickListener {
@@ -58,7 +46,7 @@ public class GYSSelectActivity extends BaseActivity implements SwipeRefreshLayou
     Button btn_search;
     @Bind(R.id.layout_more)
     View layout_more;
-    @Bind(R.id.sp_condition)
+    @Bind(R.id.tv_condition)
     Spinner sp_condition;
     GYSBean bean = new GYSBean();
     ProgressDialog dialog;

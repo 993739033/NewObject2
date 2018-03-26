@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:id="@+id/layout_card"
         android:elevation="10dp"
         app:cardCornerRadius="10dp">
 
@@ -16,7 +17,7 @@
             android:id="@+id/layout_chuku_record_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_selector"
+            android:background="?android:attr/selectableItemBackground"
             android:clickable="true">
 
 
@@ -62,7 +63,7 @@
 
                 <TextView
                     android:textColor="@color/gray_1"
-                    android:id="@+id/tv_buy_time"
+                    android:id="@+id/tv_xs_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -99,9 +100,7 @@
 
             </TableRow>
 
-
             <TableRow>
-
 
                 <TextView
                     android:layout_width="100dp"
@@ -124,34 +123,6 @@
 
 
             </TableRow>
-
-
-            <TableRow>
-
-
-                <TextView
-                    android:id="@+id/tv_siliao_3"
-                    android:layout_width="100dp"
-                    android:layout_height="28dp"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center_vertical"
-                    android:text="内码"
-                    android:textColor="@color/black" />
-
-
-                <TextView
-                    android:textColor="@color/gray_1"
-                    android:id="@+id/tv_nei_ma"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:text="" />
-
-
-            </TableRow>
-
 
         </TableLayout>
     </android.support.v7.widget.CardView>

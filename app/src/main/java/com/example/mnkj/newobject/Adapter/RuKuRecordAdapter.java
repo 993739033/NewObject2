@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 /**
  * Created by mnkj on 2017/9/27.
  */
-//客户选择
+//进货记录
 public class RuKuRecordAdapter extends RecyclerView.Adapter {
     private RuKuRecordBean bean;
     private Context mContext;
@@ -178,8 +178,8 @@ public class RuKuRecordAdapter extends RecyclerView.Adapter {
             });
 
             if (!TextUtils.isEmpty(content)) {
-                String s = "包括", s1 = "等于";
-                switch (condition) {
+                    String s = "包括", s1 = "等于";
+                    switch (condition) {
                     case "生产企业名称":
                         if (condition1.equals(s)) {
                             if (bean.getFProductEnterprise().contains(content)) {

@@ -90,32 +90,21 @@
     </LinearLayout>
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/layout_more"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:background="@color/white"
         android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/et_input_select">
-
-            <Spinner
-                android:id="@+id/sp_condition_2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"></Spinner>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+           >
 
 
             <TextView
@@ -133,10 +122,22 @@
                 android:background="@drawable/et_input_select">
 
                 <Spinner
-                    android:id="@+id/sp_condition"
+                    android:id="@+id/tv_condition"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"></Spinner>
+                    android:layout_height="match_parent"></Spinner>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/et_input_select">
+
+                <Spinner
+                    android:id="@+id/tv_condition_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></Spinner>
             </LinearLayout>
 
             <LinearLayout
@@ -147,10 +148,9 @@
                 android:background="@drawable/et_input_select">
 
                 <Spinner
-                    android:id="@+id/sp_condition_1"
+                    android:id="@+id/sp_condition_2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"></Spinner>
+                    android:layout_height="match_parent"></Spinner>
             </LinearLayout>
 
         </LinearLayout>

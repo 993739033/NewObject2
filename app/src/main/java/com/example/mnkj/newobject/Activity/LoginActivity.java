@@ -20,6 +20,7 @@ import com.example.mnkj.newobject.Contance;
 import com.example.mnkj.newobject.Utils.SPUtils;
 import com.example.mnkj.newobject.Utils.ToastUtils;
 import com.example.mnkj.newobject.Net.RequestCallBack;
+import com.example.mnkj.newobject.View.SelectDialog;
 import com.zhy.m.permission.MPermissions;
 import com.zhy.m.permission.PermissionDenied;
 import com.zhy.m.permission.PermissionGrant;
@@ -157,6 +158,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             case R.id.btn_register:
                 Intent intent1 = new Intent(this, RegisterActivity.class);
                 startActivity(intent1);
+//                Intent intent1 = new Intent(this, PhoneSelectActivity.class);
+//                startActivity(intent1);
+//                new SelectDialog(LoginActivity.this, R.style.MyDialog).show();
                 break;
             case R.id.tv_forgetPassword:
                 Intent intent2 = new Intent(this, ForgetPasswordActivity.class);

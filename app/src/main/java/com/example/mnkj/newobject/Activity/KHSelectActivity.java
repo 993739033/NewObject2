@@ -14,11 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-import com.example.mnkj.newobject.Adapter.GYSSelectAdapter;
 import com.example.mnkj.newobject.Adapter.KHSelectAdapter;
-import com.example.mnkj.newobject.Adapter.KeHuAddAdapter;
 import com.example.mnkj.newobject.Base.BaseActivity;
-import com.example.mnkj.newobject.Bean.GYSBean;
 import com.example.mnkj.newobject.Bean.KHBean;
 import com.example.mnkj.newobject.Contance;
 import com.example.mnkj.newobject.Net.RequestCallBack;
@@ -49,7 +46,7 @@ public class KHSelectActivity extends BaseActivity implements SwipeRefreshLayout
     Button btn_search;
     @Bind(R.id.layout_more)
     View layout_more;
-    @Bind(R.id.sp_condition)
+    @Bind(R.id.tv_condition)
     Spinner sp_condition;
     KHBean bean = new KHBean();
     ProgressDialog dialog;
